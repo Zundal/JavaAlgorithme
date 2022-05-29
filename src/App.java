@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /*
     TODO: 효율성 수정필요
@@ -17,12 +19,7 @@ public class App {
 class Solution {
     public String solution(String[] participant, String[] completion) {
 
-        ArrayList<String> list = new ArrayList<>(); 
-        String answer = "";
-        
-        for (String el : participant) {
-            list.add(el);
-        }
+        List<String> list = new ArrayList<String>(Arrays.asList(participant));
         
         for (String ele : completion) {
             list.remove(ele);
