@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.ArrayList;
+
 /*
     TODO: 효율성 수정필요
         - [ ] 비교줄이기
@@ -15,26 +16,18 @@ public class App {
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        Stack<String> stack = new Stack<>();
+
+        ArrayList<String> list = new ArrayList<>(); 
         String answer = "";
         
         for (String el : participant) {
-            stack.push(el);
+            list.add(el);
         }
         
         for (String ele : completion) {
-            for(int i = 0; i < stack.size(); i++) {
-                if(ele.equals(stack.elementAt(i))){
-                    stack.remove(i);
-                    break;
-                }
-            }
+            list.remove(ele);
         }
 
-        for(String el:stack){
-            answer = el;
-        }
-        
-        return answer;
+        return list.get(0);
     }
 }
