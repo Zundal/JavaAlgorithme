@@ -34,6 +34,7 @@ class Solution {
         for(String el:stack){
             answer = el;
         }
+        
         return answer;
     }
 }
