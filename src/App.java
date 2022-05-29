@@ -1,8 +1,4 @@
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
+import java.util.Stack;
 /*
     TODO: 효율성 수정필요
         - [ ] 비교줄이기
@@ -19,32 +15,25 @@ public class App {
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
+        Stack<String> stack = new Stack<>();
         String answer = "";
         
-        List<String> ArrayListParticipant = new ArrayList<String>();
-        Collections.addAll(ArrayListParticipant, participant);
-
-        // Arrays.sort(participant);
-        // Arrays.sort(completion);
+        for (String el : participant) {
+            stack.push(el);
+        }
         
         for (String ele : completion) {
-            boolean flag = false;
-            for (String el : participant) {
-                if(flag == true) {
-                    continue;
-                }
-                if(ele.equals(el)) {
-                    if(ArrayListParticipant.remove(ele) == true){
-                        flag = true;
-                    }
+            for(int i = 0; i < stack.size(); i++) {
+                if(ele.equals(stack.elementAt(i))){
+                    stack.remove(i);
+                    break;
                 }
             }
         }
-        
-        for(String ell:ArrayListParticipant){
-            answer = ell;
-        }
 
+        for(String el:stack){
+            answer = el;
+        }
         return answer;
     }
 }
