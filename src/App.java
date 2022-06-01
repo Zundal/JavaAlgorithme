@@ -24,7 +24,6 @@ class Solution {
         for (String ele : completion) {
             list.remove(ele);
         }
-        System.out.println("test");
         
         return list.get(0);
     }
